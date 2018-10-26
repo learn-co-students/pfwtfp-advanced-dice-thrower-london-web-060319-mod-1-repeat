@@ -117,4 +117,4 @@ as your programs become more complex.
 
 - [Settlers of Catan]
 
-[Settlers of Catan]: https://www.catan.com/
+[settlers of catan]: https://www.catan.com/
