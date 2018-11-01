@@ -34,19 +34,19 @@ end
 
 describe 'generate_hash_set' do
   it 'has a generate_hash_set method' do
-    expect { generate_hash_set(10, 10) }.not_to raise_error
+    expect { generate_hash_set(5) }.not_to raise_error
   end
 
   it 'returns a hash' do
-    expect(generate_hash_set(1, 1)).to be_kind_of(Hash)
+    expect(generate_hash_set(5)).to be_kind_of(Hash)
   end
 
   it 'returns a hash where the key is the index and the value is the result rolled by the die' do
-    expect(generate_hash_set(5,10)).to have_key(1)
-    expect(generate_hash_set(5,10)).to have_key(2)
-    expect(generate_hash_set(5,10)).to have_key(3)
-    expect(generate_hash_set(5,10)).to have_key(4)
-    expect(generate_hash_set(5,10)).to have_key(5)
+    expect(generate_hash_set(5)).to have_key(1)
+    expect(generate_hash_set(5)).to have_key(2)
+    expect(generate_hash_set(5)).to have_key(3)
+    expect(generate_hash_set(5)).to have_key(4)
+    expect(generate_hash_set(5)).to have_key(5)
   end
 end
 
@@ -64,14 +64,14 @@ describe 'lucky_number_seven' do
     expect(lucky_number_seven(luckier_hash)).to be_kind_of(Hash)
   end
 
-  it 'prints "You\'re pretty lucky!" when a 7 is rolled' do
-    lucky_hash = { 1 => 4, 2 => 7, 3 => 5}
+  it 'prints "You\'re pretty lucky!" when a sum of 7 is rolled' do
+    lucky_hash = { 1 => 4, 2 => 2, 3 => 1}
     expect{ lucky_number_seven(lucky_hash) }.to output("You're pretty lucky!").to_stdout
   end
 
-  it 'prints "Wow, you\'re on a roll!" when a 7 is rolled 2 or more times' do
+  it 'prints "Wow, you\'re on a roll!" when the number 7 is rolled 2 or more times' do
     luckier_hash = { 1 => 4, 2 => 7, 3 => 7}
-    expect{ lucky_number_seven(luckier_hash) }.to output("You're pretty lucky!Wow, you're on a roll!").to_stdout
+    expect{ lucky_number_seven(luckier_hash) }.to output("Wow, you're on a roll!").to_stdout
   end
 
   it 'prints "No such luck this time!" when a 7 is not rolled' do
