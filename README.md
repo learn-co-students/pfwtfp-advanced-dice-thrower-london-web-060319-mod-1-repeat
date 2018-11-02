@@ -14,7 +14,7 @@ we'd like. Most dice games involve more than one die, rolled repeatedly through
 the game.
 
 Say we wanted to start building a CLI version of the game of [Settlers of
-Catan]. In the game, each player takes turns rolling two six sided die. Each
+Catan]. In the game, each player takes turns rolling two six-sided dice. Each
 roll can be thought of as a set, so over the course of a game, rolls look
 something like this:
 
@@ -33,16 +33,13 @@ player).
 
 In this lab, we will be writing methods to simulate this behavior. We will not
 be building Settlers of Catan, but will expand on what we've already written
-to and set up a foundation we can use for _any_ sort of dice based game.
-
-## Learning Goals
-
-- Practice our skills in `Hash`es, looping, and conditions.
+to and set up a foundation we can use for _any_ sort of dice-based game.
 
 ## Generate a Hash of Die Throws
 
 If you take a look in `lib/dice_thrower_advanced.rb`, `throw_die` and
-`generate_set` are already provided (although they may differ from your previous solution).
+`generate_set` are already provided (although they may differ from your previous
+solution).
 
 First, we want to simulate and keep track of the 'turns' of a dice game. A turn
 might involve rolling multiple dice. We've already got the ability to create
@@ -86,11 +83,11 @@ So far, we've got a good foundation for all sorts of dice games. We could now
 create CLI versions of all sorts of board games. But what about our Dungeons and
 Dragons friends? They've got all kinds of dice with a variable number of sides.
 
-Let's create 2 new methods for for friends: `roll_prompt` and
+Let's create two new methods for for friends: `roll_prompt` and
 `throw_variable_die`. The `roll_prompt` method will accept any number of sides
-from 3 to 100. When a valid number is passed in, print a message that says
+from 3 to 100. When a valid number is passed in, print a message that says:
 "We're rolling a `[number_of_sides]`sided die!". If a number less than 3 or
-greater than 100 is passed in, it should return "Oops! This die does not exist.
+greater than 100 is passed in, it should return: "Oops! This die does not exist.
 Please enter a number between 3 and 100".
 
 **NOTE:** Use `prints` instead of `puts` to print output to the terminal.
@@ -99,7 +96,7 @@ Similarly to `throw_die`, the `throw_variable_die` method will roll the die, but
 instead of using a fixed number of 6, it will accept the same integer that was
 passed into `roll_prompt`.
 
-**HINT:** Randomly generated integers start at 0. Make sure that your
+**HINT:** Randomly generated integers start at 0. Make sure that you
 accommodates for this so that 0 is not a possible number that can be rolled.
 
 ## Conclusion
@@ -109,4 +106,8 @@ to add more complex, game-like methods to your Ruby program. Are there ways
 that the methods can be split up even further for simplicity? Keep this in mind
 as your programs become more complex.
 
-[settlers of catan]: https://www.catan.com/
+## Resources
+
+- [Settlers of Catan]
+
+[Settlers of Catan]: https://www.catan.com/
