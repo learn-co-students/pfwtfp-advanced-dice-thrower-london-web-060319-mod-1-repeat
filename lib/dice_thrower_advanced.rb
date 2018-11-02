@@ -3,8 +3,5 @@ def throw_die
 end
 
 def generate_set(number)
-  set = Array.new(number)
-  set.map do
-    throw_die
-  end
+  Array.new(number) { throw_die }
 end
