@@ -15,22 +15,21 @@ def generate_hash_set(number)
   hash
 end
 
-def lucky_number_seven(hash)
-  value_array = hash.values
-  if value_array.reduce(:+) == 7
-    print "You're pretty lucky!"
-    hash
-  elsif value_array.include?(7)
-    value_array.each_with_index do |value, i|
-      if value == 7 && value_array[i+1] == 7
-        print "Wow, you're on a roll!"
-      end
-    end
-    hash
-  else
-    print "No such luck this time!"
-    hash
+def lucky_number_seven(src)
+  totals = src.reduce({}) do |memo, e|
+    memo[e[0]] = e[1].reduce(&:+)
+    memo
   end
+  if !totals.values.include?(7)
+    print  "No such luck this time!"
+  else
+    if totals.values.join('').match(/77/)
+      print "Wow, you're on a roll!"
+    else
+      print "You're pretty lucky!"
+    end
+  end
+  return src
 end
 
 def roll_prompt(number_of_sides)
