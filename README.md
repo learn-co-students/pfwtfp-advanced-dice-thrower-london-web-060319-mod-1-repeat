@@ -116,7 +116,7 @@ the maximum value a die can give.  The maximum must be between 3 to 100.
   and return** `Oops! This die does not exist.  Please enter a number between 3
   and 100.`
 
-### throw_variable_die
+### `throw_variable_die`
 
 Similar to `throw_die`, the `throw_variable_die` method will roll the die, but
 instead of using a fixed number of 6, it will accept an integer to define the
