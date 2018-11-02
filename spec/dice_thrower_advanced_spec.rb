@@ -51,31 +51,31 @@ describe 'generate_hash_set' do
 end
 
 describe 'lucky_number_seven' do
+  before(:all) do
+    @unlucky_hash = { 1 => [4], 2 => [5], 3 => [8]}
+    @lucky_hash   = { 1 => [4], 2 => [7], 3 => [5]}
+    @luckier_hash = { 1 => [4], 2 => [7], 3 => [7]}
+  end
+
   it 'has a lucky_number_seven method' do
     expect { lucky_number_seven({}) }.not_to raise_error
   end
 
   it 'returns a hash regardless of the outcome' do
-    unlucky_hash = { 1 => 4, 2 => 5, 3 => 8}
-    lucky_hash = { 1 => 4, 2 => 7, 3 => 5}
-    luckier_hash = { 1 => 4, 2 => 7, 3 => 7}
-    expect(lucky_number_seven(unlucky_hash)).to be_kind_of(Hash)
-    expect(lucky_number_seven(lucky_hash)).to be_kind_of(Hash)
-    expect(lucky_number_seven(luckier_hash)).to be_kind_of(Hash)
+    expect(lucky_number_seven(@unlucky_hash)).to be_kind_of(Hash)
+    expect(lucky_number_seven(@lucky_hash)).to be_kind_of(Hash)
+    expect(lucky_number_seven(@luckier_hash)).to be_kind_of(Hash)
   end
 
   it 'prints "You\'re pretty lucky!" when a sum of 7 is rolled' do
-    lucky_hash = { 1 => 4, 2 => 2, 3 => 1}
-    expect{ lucky_number_seven(lucky_hash) }.to output("You're pretty lucky!").to_stdout
+    expect{ lucky_number_seven(@lucky_hash) }.to output("You're pretty lucky!").to_stdout
   end
 
   it 'prints "Wow, you\'re on a roll!" when the number 7 is rolled 2 or more times' do
-    luckier_hash = { 1 => 4, 2 => 7, 3 => 7}
-    expect{ lucky_number_seven(luckier_hash) }.to output("Wow, you're on a roll!").to_stdout
+    expect{ lucky_number_seven(@luckier_hash) }.to output("Wow, you're on a roll!").to_stdout
   end
 
   it 'prints "No such luck this time!" when a 7 is not rolled' do
-    unlucky_hash = { 1 => 4, 2 => 5, 3 => 8}
-    expect{ lucky_number_seven(unlucky_hash) }.to output("No such luck this time!").to_stdout
+    expect{ lucky_number_seven(@unlucky_hash) }.to output("No such luck this time!").to_stdout
   end
 end
