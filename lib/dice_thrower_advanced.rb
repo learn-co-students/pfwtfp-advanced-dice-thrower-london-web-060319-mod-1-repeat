@@ -11,6 +11,5 @@ def roll_prompt
     puts "We're rolling a #{} sided die!"
   else
     puts 'Oops! This die does not exist. Please enter a number between 3 and 100'
-
-
+  end
 end
